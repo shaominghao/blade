@@ -1,0 +1,11 @@
+{
+  "name": "blade",
+  "description": "blade",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": ">2.10.0",
+    "swig":">1.4.0",
+    "pinyin":">2.7.0"
+  }
+}

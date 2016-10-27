@@ -2,10 +2,10 @@
 'use strict';
 
 let path = require('path');
-var Server = require('./src/server/server').server;
-var onerror = require('./src/server/error/error');
+var Server = require('./server/arch/server').server;
+var onerror = require('./server/src/server/error/error');
 
-process.appConfig = require('./src/config/develop.json');
+process.appConfig = require('./server/config/develop.json');
 
 let server = new Server({
     port: 3000,

@@ -1,0 +1,8 @@
+{
+    "/": {
+        "view": "/index",
+        "action": "SiteController.home"
+    },
+
+    "post /api/parameters/"      : "ParameterController.create"
+}

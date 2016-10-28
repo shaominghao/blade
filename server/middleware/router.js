@@ -5,8 +5,7 @@
 "use strict";
 // variables
 let util = require('util'),
-    path = require('path'),
-    log  = require('../util/log');
+    path = require('path');
 /**
  * Router Delegate， Routes rule config
  *
@@ -57,10 +56,6 @@ module.exports = function(options){
         let func = router[arr[0].toLowerCase()];
         // method not supported
         if (!func){
-            log.warn(
-                '[Middleware.Router] not support route rule %s:%s',
-                arr[0],arr[1]
-            );
             return;
         }
         // map url to controller method
@@ -80,15 +75,7 @@ module.exports = function(options){
             method = brr[1],
             file = path.join(root,brr[0]+'.js');
         // map url to controller method
-        log.debug(
-            '[Middleware.Router] map route %s:%s to %s:%s',
-            arr[0],arr[1],file,method
-        );
         func.call(router,arr[1],function *(next){
-            log.debug(
-                '[Middleware.Router] dispatch to %s:%s',
-                file,method
-            );
             if (!!view){
                 this.viewFile = view;
             }
@@ -98,6 +85,7 @@ module.exports = function(options){
             yield ctrl[method]();
             // save model to context
             this.model = this.model||ctrl.model;
+            this.body = this.model;
         });
     });
     return router.routes();

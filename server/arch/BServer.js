@@ -44,17 +44,12 @@ class BServer extends require('../BObject'){
         // overwrite session store
         let sess = {
             key:'BLADE_SESSIONID',
-            store: redisStore(options.appConfig.redis)
+            store: redisStore(process.appConfig.redis)
         };
         // add common middleware
-        options.view.root = path.join(
-            options.roots.appRoot,
-            options.roots.viewRoot
-        );
         this.use([
             require('koa-better-body')(),
             require('koa-generic-session')(sess),
-            require('../middleware/error'),
             require('../middleware/router')(options),
             require('koa-static')(
                 path.join(

@@ -1,8 +1,3 @@
 {
-    "/": {
-        "view": "/index",
-        "action": "SiteController.home"
-    },
-
-    "post /api/parameters/"      : "ParameterController.create"
+    "get /login"      : "UserController.login"
 }

@@ -26,7 +26,10 @@ class UserDao extends require('./BDao'){
      * @return {model/db/User} - user model
      */
     *login(user) {
-        return user;
+        let ret = yield this.search({
+            conds:{id: user.id}
+        });
+        return (ret||[])[0];
     }
 
 }

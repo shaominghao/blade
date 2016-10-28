@@ -19,9 +19,9 @@ class UserController extends require('../../arch/BController') {
         let body = this._context.body;
         let session = this._context.session;
 
+        let id = this._context.request.query.id;
         let data = {
-            id: 123,
-            name: 'test123'
+            id
         };
         try {
             this._userService = new (require('../../service/UserService'))();

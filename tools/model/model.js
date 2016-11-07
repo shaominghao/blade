@@ -18,6 +18,7 @@ const FIELDS = {
      */
     {{FD(x.name)}}: {
         type: '{{TP(x.type)}}',
+        length: {{x.length}},
         defaultValue: {{DV(x.value,x.type)}}{% if x.primary %},
         primary: !0{% endif %}
     }{% if !loop.last %},{% endif -%}

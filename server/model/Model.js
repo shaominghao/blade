@@ -447,10 +447,10 @@ class Model extends require('../BObject'){
             }
             // property only in table fields
             let it = this.constructor.getField(fed);
-            if (it!=null){
+            if(it!=null){
                 let val = data[key],
                     func = TRANSFORM[it.type];
-                if (!!func){
+                if(!!func){
                     val = func(val);
                 }
                 this[fed] = val;
